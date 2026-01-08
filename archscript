@@ -1,0 +1,101 @@
+#!/bin/bash
+
+# Use this script after installing Arch Linux with archinstall
+
+#################
+### VARIABLES ###
+#################
+
+pacinstall = "sudo pacman -S --needed --noconfirm"
+
+##############
+### UPDATE ###
+##############
+
+sudo pacman -Syu --noconfirm
+
+#######################
+### ENABLE MULTILIB ###
+#######################
+
+#NEEDED
+
+#################
+### CLI TOOLS ###
+#################
+
+$pacinstall bash-completion bluez bluez-utils brightnessctl btop fastfetch git man-db nano networkmanager openssh speedtest-cli tailscale
+
+########################
+### GUI APPLICATIONS ###
+########################
+
+$pacinstall alacritty firefox libreoffice-fresh mousepad qbittorrent steam vlc
+
+# virt-manager
+$pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
+sudo systemctl enable libvirtd.socket
+
+# thunar
+$pacinstall file-roller gvfs thunar thunar-archive-plugin thunar-volman
+
+# nwg-look
+$pacinstall adw-gtk-theme nwg-look
+
+#############
+### AUDIO ###
+#############
+
+$pacinstall gst-plugin-pipewire libpulse pipewire pipewire-alsa pipewire-jack pipewire-pulse sof-firmware wireplumber
+
+###########
+### YAY ###
+###########
+
+# Install yay and its dependencies
+$pacinstall git base-devel
+cd ~ || exit
+git clone https://aur.archlinux.org/yay.git
+cd yay || exit
+makepkg -si
+yay -Y --gendb
+yay -Syu --devel
+yay -Y --devel --save
+
+# yay applications
+yay betterbird-bin libation paccache-hook visual-studio-code.bin --noconfirm
+
+###############
+### FLATPAK ###
+###############
+$pacinstall flatpak
+#flatpak install -y #applications NEEDED
+
+###############
+### LIGHTDM ###
+###############
+$pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
+sudo systemctl enable lightdm.service
+
+###############
+### WAYLAND ###
+###############
+
+# hyprland compositor
+$pacinstall hyprland hyprpaper otf-font-awesome waybar wofi
+# git pull hyprland, hyprpaper and waybar config files NEEDED
+
+###########
+### X11 ###
+###########
+
+# i3 window manager
+$pacinstall feh i3-wm polybar rofi xorg
+# git pull i3 and polybar config files NEEDED
+
+##############
+### REBOOT ###
+##############
+
+# Restart the system
+sudo reboot now
