@@ -57,13 +57,15 @@ yay betterbird-bin libation paccache-hook visual-studio-code.bin --noconfirm
 ### FLATPAK ###
 ###############
 $pacinstall flatpak
-#flatpak install -y #applications NEEDED
+#flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
 ###############
 ### LIGHTDM ###
 ###############
 $pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
 sudo systemctl enable lightdm.service
+cd /etc/ || exit
+sudo git clone https://github.com/user241324/configs/tree/main/lightdm
 
 ###############
 ### WAYLAND ###
@@ -71,7 +73,9 @@ sudo systemctl enable lightdm.service
 
 # hyprland compositor
 $pacinstall hyprland hyprpaper otf-font-awesome waybar wofi
-# git pull hyprland, hyprpaper and waybar config files NEEDED
+cd ~/.config/
+git clone https://github.com/user241324/configs/tree/main/hypr
+git clone https://github.com/user241324/configs/tree/main/waybar
 
 ###########
 ### X11 ###
@@ -79,7 +83,16 @@ $pacinstall hyprland hyprpaper otf-font-awesome waybar wofi
 
 # i3 window manager
 $pacinstall feh i3-wm polybar rofi xorg
-# git pull i3 and polybar config files NEEDED
+cd ~/.config/
+git clone https://github.com/user241324/configs/tree/main/i3
+git clone https://github.com/user241324/configs/tree/main/polybar
+
+###################
+### BACKGROUNDS ###
+###################
+
+cd /usr/share/
+git clone https://github.com/user241324/backgrounds
 
 ##############
 ### REBOOT ###
