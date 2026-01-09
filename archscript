@@ -14,17 +14,11 @@ pacinstall = "sudo pacman -S --needed --noconfirm"
 
 sudo pacman -Syu --noconfirm
 
-#######################
-### ENABLE MULTILIB ###
-#######################
-
-#NEEDED
-
 #################
 ### CLI TOOLS ###
 #################
 
-$pacinstall bash-completion bluez bluez-utils brightnessctl btop fastfetch git man-db nano networkmanager openssh speedtest-cli tailscale
+$pacinstall bash-completion brightnessctl btop fastfetch git man-db nano openssh speedtest-cli tailscale
 
 ########################
 ### GUI APPLICATIONS ###
@@ -41,12 +35,6 @@ $pacinstall file-roller gvfs thunar thunar-archive-plugin thunar-volman
 
 # nwg-look
 $pacinstall adw-gtk-theme nwg-look
-
-#############
-### AUDIO ###
-#############
-
-$pacinstall gst-plugin-pipewire libpulse pipewire pipewire-alsa pipewire-jack pipewire-pulse sof-firmware wireplumber
 
 ###########
 ### YAY ###
