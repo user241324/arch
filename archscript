@@ -19,6 +19,9 @@ pacinstall="sudo pacman -S --needed --noconfirm"
 
 sudo pacman -Syu --noconfirm
 
+# Create .config directory in home directory
+mkdir $HOME/.config
+
 #################
 ### CLI TOOLS ###
 #################
