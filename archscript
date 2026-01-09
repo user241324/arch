@@ -64,6 +64,13 @@ yay betterbird-bin libation paccache-hook visual-studio-code.bin --noconfirm
 $pacinstall flatpak
 #flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
+######################
+### NVIDIA DRIVERS ###
+######################
+
+$pacinstall nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings
+# https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting 1.2.1 Early loading
+
 ###############
 ### LIGHTDM ###
 ###############
