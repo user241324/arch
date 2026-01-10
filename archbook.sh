@@ -15,22 +15,19 @@ yay -Y --devel --save
 
 #Install chromebook-linux-audio
 sudo pacman -S --noconfirm python
-cd ~ || exit
-git clone https://github.com/WeirdTreeThing/chromebook-linux-audio
-cd chromebook-linux-audio || exit
+git clone https://github.com/WeirdTreeThing/chromebook-linux-audio /$HOME/.chromebook-linux-audio
+cd $HOME/.chromebook-linux-audio || exit
 ./setup-audio
 
 #Install cros-keyboard-map (chromebook keymapping)
-cd ~ || exit
-git clone https://github.com/WeirdTreeThing/cros-keyboard-map
-cd cros-keyboard-map || exit
+git clone https://github.com/WeirdTreeThing/cros-keyboard-map $HOME/.cros-keyboard-map
+cd $HOME/.cros-keyboard-map || exit
 ./install.sh
 
 #Install mkinitcpio-numlock (enables numlock at startup)
-cd ~ || exit
 yay -S mkinitcpio-numlock --noconfirm
 
-#Install openssh and enable sshd.service
+#Install openssh
 sudo pacman -S --noconfirm openssh
 
 #Install Hyprland window manager and needed applications
