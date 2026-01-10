@@ -12,6 +12,7 @@
 
 # Testing needed.
 # Repositories need to be public
+# Add more flatpaks to be installed
 
 #################
 ### VARIABLES ###
@@ -35,9 +36,8 @@ ssh-copy-id -i $HOME/.ssh/id_25519.pub $sshServer
 
 # Install yay and its dependencies
 $pacinstall git base-devel
-cd ~ || exit
-git clone https://aur.archlinux.org/yay.git
-cd yay || exit
+git clone https://aur.archlinux.org/yay.git $HOME/.yay
+cd .yay || exit
 makepkg -si
 yay -Y --gendb
 yay -Syu --devel
@@ -58,7 +58,7 @@ echo -e "\n# Run at shell startup\nfastfetch" >> .bashrc
 ########################
 
 $pacinstall alacritty firefox libreoffice-fresh mousepad qbittorrent steam vlc
-yay betterbird-bin libation visual-studio-code.bin --noconfirm
+yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 
 # virt-manager
 $pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
@@ -74,50 +74,44 @@ $pacinstall adw-gtk-theme nwg-look
 ### FLATPAK ###
 ###############
 $pacinstall flatpak
-#flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
+flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
 ######################
 ### NVIDIA DRIVERS ###
 ######################
 
-$pacinstall nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings
+#$pacinstall nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings
 # https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting 1.2.1 Early loading
-
-###############
-### LIGHTDM ###
-###############
-$pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
-sudo systemctl enable lightdm.service
-cd /etc/ || exit
-sudo git clone https://github.com/user241324/configs/tree/main/lightdm
-
-###############
-### WAYLAND ###
-###############
-
-# hyprland compositor
-$pacinstall hyprland hyprpaper otf-font-awesome waybar wofi
-cd ~/.config/
-git clone https://github.com/user241324/configs/tree/main/hypr
-git clone https://github.com/user241324/configs/tree/main/waybar
-
-###########
-### X11 ###
-###########
-
-# i3 window manager
-$pacinstall feh i3-wm polybar rofi xorg
-cd ~/.config/
-git clone https://github.com/user241324/configs/tree/main/i3
-git clone https://github.com/user241324/configs/tree/main/polybar
-chmod +x /home/tom/.config/polybar/launch.sh
 
 ###################
 ### BACKGROUNDS ###
 ###################
 
-cd /usr/share/
-git clone https://github.com/user241324/backgrounds
+git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
+
+###############
+### LIGHTDM ###
+###############
+git clone https://github.com/user241324/configs/lightdm /etc/lightdm
+$pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
+sudo systemctl enable lightdm.service
+
+###############
+### HYPRLAND ###
+###############
+
+git clone https://github.com/user241324/configs/hypr $HOME/.config/hypr
+git clone https://github.com/user241324/configs/waybar $HOME/.config/waybar
+$pacinstall hyprland hyprpaper otf-font-awesome waybar wofi
+
+##########
+### i3 ###
+##########
+
+git clone https://github.com/user241324/configs/i3 $HOME/.config/i3
+git clone https://github.com/user241324/configs/polybar $HOME/.config/polybar
+chmod +x /home/tom/.config/polybar/launch.sh
+$pacinstall feh i3-wm polybar rofi xorg
 
 ##############
 ### REBOOT ###
