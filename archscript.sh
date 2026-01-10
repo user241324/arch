@@ -68,10 +68,10 @@ sudo systemctl enable libvirtd.socket
 $pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
 
 # nwg-look
-$pacinstall adw-gtk-theme nwg-look
+$pacinstall adw-gtk-theme breeze-gtk nwg-look
 
 # Qt theming - kvantum
-$pacinstall kvantum
+$pacinstall breeze kvantum
 
 ###############
 ### FLATPAK ###
