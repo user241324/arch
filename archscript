@@ -11,7 +11,6 @@
 #############
 
 # Testing needed.
-# Repositories need to be public
 # Add more flatpaks to be installed
 
 #################
@@ -73,6 +72,7 @@ $pacinstall adw-gtk-theme nwg-look
 ###############
 ### FLATPAK ###
 ###############
+
 $pacinstall flatpak
 flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
@@ -87,11 +87,12 @@ flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 ### BACKGROUNDS ###
 ###################
 
-git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
+git clone https://github.com/user241324/backgrounds/guts_moonlight.jpg /usr/share/backgrounds/guts_moonlight.jpg
 
 ###############
 ### LIGHTDM ###
 ###############
+
 git clone https://github.com/user241324/configs/lightdm /etc/lightdm
 $pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
 sudo systemctl enable lightdm.service
@@ -117,5 +118,4 @@ $pacinstall feh i3-wm polybar rofi xorg
 ### REBOOT ###
 ##############
 
-# Restart the system
 sudo reboot now
