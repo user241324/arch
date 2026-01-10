@@ -56,7 +56,7 @@ echo -e "\n# Run at shell startup\nfastfetch" >> .bashrc
 ### GUI APPLICATIONS ###
 ########################
 
-$pacinstall alacritty firefox libreoffice-fresh mousepad qbittorrent steam vlc
+$pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent steam vlc
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 
 # virt-manager
@@ -64,7 +64,7 @@ $pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
 sudo systemctl enable libvirtd.socket
 
 # thunar
-$pacinstall file-roller gvfs thunar thunar-archive-plugin thunar-volman
+$pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
 
 # nwg-look
 $pacinstall adw-gtk-theme nwg-look
