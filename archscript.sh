@@ -12,9 +12,9 @@
 
 # Testing needed.
 # Add more flatpaks to be installed
-# Upload $HOME/.config/Thunar/uca.xml from archbook and git clone before install
-# Upload $HOME/.config/gtk-3.0 gtk-4.0 qt5ct qt6ct
+# Upload $HOME/.config/Thunar/uca.xml from archebook and git clone before install
 # Fix BACKGROUNDS git clone request to allow pulling single files or add another command to remove .git and README upon cloning
+# Install and config sddm instead of lightdm. Lightdm does not work on hyprland
 
 #################
 ### VARIABLES ###
