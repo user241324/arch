@@ -1,57 +1,18 @@
 #!/bin/bash
-
-###################
-### DESCRIPTION ###
-###################
-
-# Use this script after installing Arch Linux with archinstall
-
-#############
-### NOTES ###
-#############
-
-# Testing needed.
 # Add more flatpaks to be installed
-# git clone thunar config file from reop
-# Fix BACKGROUNDS git clone request to allow pulling single files or add another command to remove .git and README upon cloning
-# Install and config sddm instead of lightdm. Lightdm does not work on hyprland
 # Add polkit gui (lxsession contains lxpolkit) for x11 
 # Figure out flatpak theming
 
-#################
-### VARIABLES ###
-#################
-
 pacinstall="sudo pacman -S --needed --noconfirm"
 
-##################
-### GITCONFIGS ###
-##################
-
-$pacinstall git
-sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
-sudo rm -r /usr/share/backgrounds/.git
-sudo rm /usr/share/backgrounds/README.md
-git clone https://github.com/user241324/gitconfigs $HOME/.config
-chmod +x $HOME/.config/polybar/launch.sh
-sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
-sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
-
-###########
-### SSH ###
-###########
-
+# SSH
 $pacinstall openssh
 ssh-keygen -f $HOME/.ssh/id_ed25519
 echo "Please enter <user>@<hostname> to share your public key with an SSH server:"
 read sshServer
 ssh-copy-id -i $HOME/.ssh/id_25519.pub $sshServer
 
-###########
-### YAY ###
-###########
-
-# Install yay and its dependencies
+# YAY
 $pacinstall git base-devel
 git clone https://aur.archlinux.org/yay.git $HOME/.yay
 cd .yay || exit
@@ -60,15 +21,40 @@ yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
 
-#################
-### CLI TOOLS ###
-#################
-
+# CLI TOOLS
 $pacinstall bash-completion brightnessctl btop fastfetch git gnu-free-fonts man-db nano openssh speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
+echo -e "\n# Run at shell startup\nfastfetch" >> $HOME/.bashrc
 
-# Run at shell startup. Add additional programs by appending \n<command> before the endquote.
-echo -e "\n# Run at shell startup\nfastfetch" >> .bashrc
+# GITCONFIGS
+$pacinstall git
+sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
+sudo rm -r /usr/share/backgrounds/.git
+sudo rm /usr/share/backgrounds/README.md
+git clone https://github.com/user241324/gitconfigs $HOME/.config
+sudo rm -r $HOME/.config/.git
+sudo rm $HOME/.config/README.md
+chmod +x $HOME/.config/polybar/launch.sh
+sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
+sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
+sudo rm -r $HOME/.config/sddm
+
+# SDDM
+$pacinstall qt5-declarative gnu-free-fonts sddm xorg-server xorg-xrandr
+sudo systemctl enable sddm.service
+
+# HYPRLAND
+$pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
+
+# I3
+$pacinstall feh i3-wm polybar rofi # Add polkit agent for x11
+
+# nwg-look
+$pacinstall breeze-gtk nwg-look
+
+# Qt theming
+$pacinstall breeze qt5-wayland qt6-wayland
+yay -S qt5ct-kde qt6ct-kde --noconfirm
 
 ########################
 ### GUI APPLICATIONS ###
@@ -84,52 +70,12 @@ sudo systemctl enable libvirtd.socket
 # thunar
 $pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
 
-# nwg-look
-$pacinstall adw-gtk-theme breeze-gtk nwg-look
-
-# Qt theming
-$pacinstall breeze qt5-wayland qt6-wayland
-yay -S qt5ct-kde qt6ct-kde --noconfirm
-
 ###############
 ### FLATPAK ###
 ###############
 
 $pacinstall flatpak
 flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
-
-######################
-### NVIDIA DRIVERS ###
-######################
-
-#$pacinstall nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings
-# https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting 1.2.1 Early loading
-
-###################
-### BACKGROUNDS ###
-###################
-
-git clone https://github.com/user241324/backgrounds/guts_moonlight.jpg /usr/share/backgrounds/guts_moonlight.jpg
-
-###############
-### LIGHTDM ###
-###############
-
-$pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
-sudo systemctl enable lightdm.service
-
-###############
-### HYPRLAND ###
-###############
-
-$pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
-
-##########
-### i3 ###
-##########
-
-$pacinstall feh i3-wm polybar rofi xorg
-# Add polkit agent for x11
 
 ##############
 ### REBOOT ###
