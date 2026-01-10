@@ -16,6 +16,7 @@
 # Fix BACKGROUNDS git clone request to allow pulling single files or add another command to remove .git and README upon cloning
 # Install and config sddm instead of lightdm. Lightdm does not work on hyprland
 # Add polkit gui (lxsession contains lxpolkit) for x11 
+# Figure out flatpak theming
 
 #################
 ### VARIABLES ###
