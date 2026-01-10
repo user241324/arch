@@ -12,9 +12,10 @@
 
 # Testing needed.
 # Add more flatpaks to be installed
-# Upload $HOME/.config/Thunar/uca.xml from archebook and git clone before install
+# git clone thunar config file from reop
 # Fix BACKGROUNDS git clone request to allow pulling single files or add another command to remove .git and README upon cloning
 # Install and config sddm instead of lightdm. Lightdm does not work on hyprland
+# Add polkit gui (lxsession contains lxpolkit) for x11 
 
 #################
 ### VARIABLES ###
@@ -110,7 +111,7 @@ sudo systemctl enable lightdm.service
 
 git clone https://github.com/user241324/configs/hypr $HOME/.config/hypr
 git clone https://github.com/user241324/configs/waybar $HOME/.config/waybar
-$pacinstall hyprland hyprpaper otf-font-awesome waybar wofi
+$pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
 
 ##########
 ### i3 ###
@@ -120,6 +121,7 @@ git clone https://github.com/user241324/configs/i3 $HOME/.config/i3
 git clone https://github.com/user241324/configs/polybar $HOME/.config/polybar
 chmod +x /home/tom/.config/polybar/launch.sh
 $pacinstall feh i3-wm polybar rofi xorg
+# Add polkit agent for x11
 
 ##############
 ### REBOOT ###
