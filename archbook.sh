@@ -5,9 +5,8 @@ sudo pacman -Syu --noconfirm
 
 #Install yay and its dependencies
 sudo pacman -S --needed --noconfirm git base-devel
-cd ~ || exit
-git clone https://aur.archlinux.org/yay.git
-cd yay || exit
+git clone https://aur.archlinux.org/yay.git $HOME/.yay
+cd .yay || exit
 makepkg -si
 yay -Y --gendb
 yay -Syu --devel
