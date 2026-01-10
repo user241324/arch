@@ -1,9 +1,11 @@
 #!/bin/bash
 
-#Update installed packages
+# Script to install Arch on Chromebooks
+
+# Update installed packages
 sudo pacman -Syu --noconfirm
 
-#Install yay and its dependencies
+# Install yay
 sudo pacman -S --needed --noconfirm git base-devel
 git clone https://aur.archlinux.org/yay.git $HOME/.yay
 cd .yay || exit
@@ -12,29 +14,33 @@ yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
 
-#Install chromebook-linux-audio
+# Install chromebook-linux-audio
 sudo pacman -S --noconfirm python
 git clone https://github.com/WeirdTreeThing/chromebook-linux-audio /$HOME/.chromebook-linux-audio
 cd $HOME/.chromebook-linux-audio || exit
 ./setup-audio
 
-#Install cros-keyboard-map (chromebook keymapping)
+# Install cros-keyboard-map
 git clone https://github.com/WeirdTreeThing/cros-keyboard-map $HOME/.cros-keyboard-map
 cd $HOME/.cros-keyboard-map || exit
 ./install.sh
 
-#Install mkinitcpio-numlock (enables numlock at startup)
+# Install mkinitcpio-numlock
 yay -S mkinitcpio-numlock --noconfirm
 
-#Install openssh
+# Install openssh
 sudo pacman -S --noconfirm openssh
 
-#Install Hyprland window manager and needed applications
-sudo pacman -S --noconfirm alacritty alsa-utils brightnessctl grim hyprland hyprpaper pavucontrol pulseaudio pulseaudio-alsa sof-firmware otf-font-awesome waybar wofi
-yay -S pulseaudio-ctl
+# Install hyprland
+sudo pacman -S --noconfirm hyprland hyprpaper otf-font-awesome waybar wofi
 
-#Install file management tools with thunar
-sudo pacman -S --noconfirm adw-gtk-theme file-roller gvfs gvfs-smb ntfs-3g nwg-look thunar thunar-archive-plugin thunar-volman sshfs
+sudo pacman -S alacritty brightnessctl fastfetch grim sof-firmware
+
+sudo pacman -S adw-gtk-theme nwg-look
+
+
+# File management with thunar
+sudo pacman -S --noconfirm file-roller gvfs thunar thunar-archive-plugin thunar-volman
 
 #Install other packages
 sudo pacman -S --noconfirm baobab chromium dnsmasq docker docker-compose fastfetch firefox keyd libreoffice-fresh qbittorrent tailscale wev
