@@ -70,8 +70,9 @@ $pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
 # nwg-look
 $pacinstall adw-gtk-theme breeze-gtk nwg-look
 
-# Qt theming - kvantum
-$pacinstall breeze kvantum
+# Qt theming
+$pacinstall breeze qt5-wayland qt6-wayland
+yay -S qt5ct qt6ct --noconfirm
 
 ###############
 ### FLATPAK ###
