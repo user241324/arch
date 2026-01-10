@@ -70,6 +70,9 @@ $pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
 # nwg-look
 $pacinstall adw-gtk-theme nwg-look
 
+# Qt theming - kvantum
+$pacinstall kvantum
+
 ###############
 ### FLATPAK ###
 ###############
