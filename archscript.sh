@@ -73,7 +73,7 @@ $pacinstall adw-gtk-theme breeze-gtk nwg-look
 
 # Qt theming
 $pacinstall breeze qt5-wayland qt6-wayland
-yay -S qt5ct qt6ct --noconfirm
+yay -S qt5ct-kde qt6ct-kde --noconfirm
 
 ###############
 ### FLATPAK ###
