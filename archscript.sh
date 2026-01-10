@@ -24,6 +24,19 @@
 
 pacinstall="sudo pacman -S --needed --noconfirm"
 
+##################
+### GITCONFIGS ###
+##################
+
+$pacinstall git
+sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
+sudo rm -r /usr/share/backgrounds/.git
+sudo rm /usr/share/backgrounds/README.md
+git clone https://github.com/user241324/gitconfigs $HOME/.config
+chmod +x $HOME/.config/polybar/launch.sh
+sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
+sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
+
 ###########
 ### SSH ###
 ###########
@@ -51,7 +64,7 @@ yay -Y --devel --save
 ### CLI TOOLS ###
 #################
 
-$pacinstall bash-completion brightnessctl btop fastfetch git man-db nano openssh speedtest-cli tailscale
+$pacinstall bash-completion brightnessctl btop fastfetch git gnu-free-fonts man-db nano openssh speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
 
 # Run at shell startup. Add additional programs by appending \n<command> before the endquote.
@@ -102,7 +115,6 @@ git clone https://github.com/user241324/backgrounds/guts_moonlight.jpg /usr/shar
 ### LIGHTDM ###
 ###############
 
-git clone https://github.com/user241324/configs/lightdm /etc/lightdm
 $pacinstall lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xorg-server
 sudo systemctl enable lightdm.service
 
@@ -110,17 +122,12 @@ sudo systemctl enable lightdm.service
 ### HYPRLAND ###
 ###############
 
-git clone https://github.com/user241324/configs/hypr $HOME/.config/hypr
-git clone https://github.com/user241324/configs/waybar $HOME/.config/waybar
 $pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
 
 ##########
 ### i3 ###
 ##########
 
-git clone https://github.com/user241324/configs/i3 $HOME/.config/i3
-git clone https://github.com/user241324/configs/polybar $HOME/.config/polybar
-chmod +x /home/tom/.config/polybar/launch.sh
 $pacinstall feh i3-wm polybar rofi xorg
 # Add polkit agent for x11
 
