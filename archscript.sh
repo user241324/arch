@@ -12,6 +12,7 @@
 
 # Testing needed.
 # Add more flatpaks to be installed
+# Upload $HOME/.config/Thunar/uca.xml from archbook and git clone before install
 
 #################
 ### VARIABLES ###
