@@ -1,11 +1,17 @@
 #!/bin/bash
 
-#TESTING NEEDED
-#NEED TO GENERATE AND ADD PAT (PERSONAL ACCESS TOKEN) FROM GITHUB AND TO GIT CLONE COMMANDS
-##git clone https://username:<PAT>@github.com/user241324/<etc>
-##OR MAKE THE REPOSITORIES PUBLIC
+###################
+### DESCRIPTION ###
+###################
 
 # Use this script after installing Arch Linux with archinstall
+
+#############
+### NOTES ###
+#############
+
+# Testing needed.
+# Repositories need to be public
 
 #################
 ### VARIABLES ###
@@ -13,36 +19,15 @@
 
 pacinstall="sudo pacman -S --needed --noconfirm"
 
-##############
-### UPDATE ###
-##############
+###########
+### SSH ###
+###########
 
-sudo pacman -Syu --noconfirm
-
-# Create .config directory in home directory
-mkdir $HOME/.config
-
-#################
-### CLI TOOLS ###
-#################
-
-$pacinstall bash-completion brightnessctl btop fastfetch git man-db nano openssh speedtest-cli tailscale
-
-########################
-### GUI APPLICATIONS ###
-########################
-
-$pacinstall alacritty firefox libreoffice-fresh mousepad qbittorrent steam vlc
-
-# virt-manager
-$pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
-sudo systemctl enable libvirtd.socket
-
-# thunar
-$pacinstall file-roller gvfs thunar thunar-archive-plugin thunar-volman
-
-# nwg-look
-$pacinstall adw-gtk-theme nwg-look
+$pacinstall openssh
+ssh-keygen -f $HOME/.ssh/id_ed25519
+echo "Please enter <user>@<hostname> to share your public key with an SSH server:"
+read sshServer
+ssh-copy-id -i $HOME/.ssh/id_25519.pub $sshServer
 
 ###########
 ### YAY ###
@@ -58,8 +43,32 @@ yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
 
-# yay applications
-yay betterbird-bin libation paccache-hook visual-studio-code.bin --noconfirm
+#################
+### CLI TOOLS ###
+#################
+
+$pacinstall bash-completion brightnessctl btop fastfetch git man-db nano openssh speedtest-cli tailscale
+yay -S paccache-hook --noconfirm
+
+# Run at shell startup. Add additional programs by appending \n<command> before the endquote.
+echo -e "\n# Run at shell startup\nfastfetch" >> .bashrc
+
+########################
+### GUI APPLICATIONS ###
+########################
+
+$pacinstall alacritty firefox libreoffice-fresh mousepad qbittorrent steam vlc
+yay betterbird-bin libation visual-studio-code.bin --noconfirm
+
+# virt-manager
+$pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
+sudo systemctl enable libvirtd.socket
+
+# thunar
+$pacinstall file-roller gvfs thunar thunar-archive-plugin thunar-volman
+
+# nwg-look
+$pacinstall adw-gtk-theme nwg-look
 
 ###############
 ### FLATPAK ###
