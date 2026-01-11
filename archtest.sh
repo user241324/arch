@@ -7,8 +7,8 @@ $pacinstall git base-devel
 git clone https://aur.archlinux.org/yay.git $HOME/.yay
 cd .yay || exit
 makepkg -si
-yay -Y --gendb
-yay -Syu --devel
+yay -Y --gendb --noconfirm
+yay -Syu --devel --noconfirm
 yay -Y --devel --save
 
 # GITCONFIGS
