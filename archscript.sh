@@ -2,6 +2,8 @@
 # Add more flatpaks to be installed
 # Add polkit gui (lxsession contains lxpolkit) for x11 
 # Figure out flatpak theming
+# Figure out hyprpaper issue
+# Figure out environment variables for QT theming in i3 or sddm
 
 pacinstall="sudo pacman -S --needed --noconfirm"
 
