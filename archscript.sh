@@ -5,6 +5,22 @@
 
 pacinstall="sudo pacman -S --needed --noconfirm"
 
+# GITCONFIGS
+$pacinstall git
+sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
+sudo rm -r /usr/share/backgrounds/.git
+sudo rm /usr/share/backgrounds/README.md
+git clone https://github.com/user241324/gitconfigs $HOME/.config
+sudo rm -r $HOME/.config/.git
+sudo rm $HOME/.config/README.md
+chmod +x $HOME/.config/polybar/launch.sh
+sudo mkdir -p /usr/share/sddm/scripts
+sudo mkdir /etc/sddm.conf.d
+sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
+sudo chmod +x /usr/share/sddm/scripts/Xsetup
+sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
+sudo rm -r $HOME/.config/sddm
+
 # SSH
 $pacinstall openssh
 ssh-keygen -f $HOME/.ssh/id_ed25519
@@ -25,19 +41,6 @@ yay -Y --devel --save
 $pacinstall bash-completion brightnessctl btop fastfetch git gnu-free-fonts man-db nano openssh speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
 echo -e "\n# Run at shell startup\nfastfetch" >> $HOME/.bashrc
-
-# GITCONFIGS
-$pacinstall git
-sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
-sudo rm -r /usr/share/backgrounds/.git
-sudo rm /usr/share/backgrounds/README.md
-git clone https://github.com/user241324/gitconfigs $HOME/.config
-sudo rm -r $HOME/.config/.git
-sudo rm $HOME/.config/README.md
-chmod +x $HOME/.config/polybar/launch.sh
-sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
-sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
-sudo rm -r $HOME/.config/sddm
 
 # SDDM
 $pacinstall qt5-declarative gnu-free-fonts sddm xorg-server xorg-xrandr
