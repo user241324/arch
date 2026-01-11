@@ -2,15 +2,6 @@
 
 pacinstall="sudo pacman -S --needed --noconfirm"
 
-# YAY
-$pacinstall git base-devel
-git clone https://aur.archlinux.org/yay.git $HOME/.yay
-cd .yay || exit
-makepkg -si
-yay -Y --gendb --noconfirm
-yay -Syu --devel --noconfirm
-yay -Y --devel --save
-
 # GITCONFIGS
 $pacinstall git
 sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
@@ -23,6 +14,15 @@ chmod +x $HOME/.config/polybar/launch.sh
 sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
 sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
 sudo rm -r $HOME/.config/sddm
+
+# YAY
+$pacinstall git base-devel
+git clone https://aur.archlinux.org/yay.git $HOME/.yay
+cd .yay || exit
+makepkg -si
+yay -Y --gendb
+yay -Syu --devel
+yay -Y --devel --save
 
 # CLI TOOLS
 $pacinstall bash-completion brightnessctl fastfetch git gnu-free-fonts man-db nano openssh
