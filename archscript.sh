@@ -9,6 +9,7 @@
 # Confirm hyprpolkit works as currently set
 # Add if statement for SSH to allow users to say no and initiate reboot
 # Try to adjust yay installation to not require intervention
+# Add yayinstall variable for --needed --noconfirm options
 # Add theme config files for GTK3/4, QT5/6, and SDDM.
 # Figure out flatpak theming
 # Consider changing script to allow config files to replace existing directories and files.
