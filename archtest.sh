@@ -4,19 +4,17 @@ pacinstall="sudo pacman -S --needed --noconfirm"
 
 # GITCONFIGS
 $pacinstall git
-sudo git clone https://github.com/user241324/backgrounds /usr/share/backgrounds
-sudo rm -r /usr/share/backgrounds/.git
-sudo rm /usr/share/backgrounds/README.md
-git clone https://github.com/user241324/gitconfigs $HOME/.config
-sudo rm -r $HOME/.config/.git
-sudo rm $HOME/.config/README.md
+
+git clone https://github.com/user241324/gitconfigs/HOME/.config $HOME/.config
 chmod +x $HOME/.config/polybar/launch.sh
-sudo mkdir -p /usr/share/sddm/scripts
-sudo mkdir /etc/sddm.conf.d
-sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
-sudo chmod +x /usr/share/sddm/scripts/Xsetup
-sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
-sudo rm -r $HOME/.config/sddm
+git clone https://github.com/user241324/gitconfigs/HOME/scripts $HOME/scripts
+git clone https://github.com/user241324/gitconfigs/HOME/.xsessionrc $HOME/.xsessionrc
+
+sudo git clone https://github.com/user241324/gitconfigs/etc/X11 /etc/X11
+sudo git clone https://github.com/user241324/gitconfigs/etc/sddm.conf.d /etc/sddm.conf.d
+
+sudo git clone https://github.com/user241324/gitconfigs/usr/share/backgrounds /usr/share/backgrounds
+sudo git clone https://github.com/user241324/gitconfigs/usr/share/rofi /usr/share/rofi
 
 # YAY
 $pacinstall git base-devel
@@ -28,7 +26,7 @@ yay -Syu --devel
 yay -Y --devel --save
 
 # CLI TOOLS
-$pacinstall bash-completion brightnessctl fastfetch git gnu-free-fonts man-db nano openssh
+$pacinstall bash-completion brightnessctl fastfetch git gnu-free-fonts man-db nano openssh speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
 echo -e "\n# Run at shell startup\nfastfetch" >> $HOME/.bashrc
 
