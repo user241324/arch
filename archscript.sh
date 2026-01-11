@@ -17,6 +17,7 @@ chmod +x $HOME/.config/polybar/launch.sh
 sudo mkdir /etc/sddm.conf.d
 sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
 sudo rm -r $HOME/.config/sddm
+sudo mv $HOME/.config/.xsessionrc $HOME/.xsessionrc
 
 # SSH
 $pacinstall openssh
@@ -75,7 +76,24 @@ $pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
 ###############
 
 $pacinstall flatpak
-flatpak install -y com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
+
+avidemux=org.avidemux.Avidemux
+bitwarden=com.bitwarden.desktop
+bottles=com.usebottles.bottles
+dolphinemu=org.DolphinEmu.dolphin-emu
+flatseal=com.github.tchx84.Flatseal
+gopher64=io.github.gopher64.gopher64
+kid3=org.kde.kid3
+melonds=net.kuribo64.melonDS
+mgba=io.mgba.mGBA
+mpv=io.mpv.Mpv
+pcsx2=net.pcsx2.PCSX2
+protonvpn=com.protonvpn.www
+protonupqt=net.davidotek.pupgui2
+ungoogledchromium=io.github.ungoogled_software.ungoogled_chromium
+vscode=com.visualstudio.code
+
+flatpak install -y $avidemux $bottles
 
 ##############
 ### REBOOT ###
