@@ -11,6 +11,8 @@ git clone https://github.com/user241324/gitconfigs $HOME/.config
 sudo rm -r $HOME/.config/.git
 sudo rm $HOME/.config/README.md
 chmod +x $HOME/.config/polybar/launch.sh
+sudo mkdir -p /usr/share/sddm/scripts
+sudo mkdir /etc/sddm.conf.d
 sudo mv $HOME/.config/sddm/scripts/Xsetup /usr/share/sddm/scripts/Xsetup
 sudo mv $HOME/.config/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/default.conf
 sudo rm -r $HOME/.config/sddm
