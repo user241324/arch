@@ -81,6 +81,7 @@ bottles=com.usebottles.bottles
 dolphinemu=org.DolphinEmu.dolphin-emu
 flatseal=com.github.tchx84.Flatseal
 gopher64=io.github.gopher64.gopher64
+heroicgames=com.heroicgameslauncher.hgl
 kid3=org.kde.kid3
 melonds=net.kuribo64.melonDS
 mgba=io.mgba.mGBA
@@ -91,7 +92,7 @@ protonupqt=net.davidotek.pupgui2
 ungoogledchromium=io.github.ungoogled_software.ungoogled_chromium
 vscode=com.visualstudio.code
 
-flatpak install -y $flatseal $bitwarden
+flatpak install -y $flatseal $bitwarden $heroicgames
 
 ### SSH ###
 $pacinstall openssh
