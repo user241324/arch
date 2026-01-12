@@ -17,13 +17,11 @@ yay -Y --devel --save
 # GITCONFIGS
 $pacinstall git
 git clone https://github.com/user241324/gitconfigs $HOME/gitconfigs
-cp -r $HOME/gitconfigs/HOME/* $HOME/
-sudo cp -r $HOME/gitconfigs/root/* /
+cp -r $HOME/gitconfigs/HOME/. $HOME/
+sudo cp -r $HOME/gitconfigs/root/. /
 sudo rm -r $HOME/gitconfigs
 chmod +x $HOME/.config/polybar/launch.sh
 echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
-
-exit
 
 # CLI TOOLS
 $pacinstall bash-completion fastfetch git man-db nano
