@@ -43,7 +43,7 @@ yay -Y --devel --save
 ### CLI TOOLS ###
 $pacinstall bash-completion brightnessctl btop fastfetch gnu-free-fonts man-db nano speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
-echo -e "\n# Run at shell startup\nfastfetch" >> $HOME/.bashrc
+echo "fastfetch" | tee -a $HOME/.bashrc
 
 ### SDDM ###
 $pacinstall qt5-declarative gnu-free-fonts sddm xorg-server xorg-xrandr
@@ -61,6 +61,7 @@ $pacinstall breeze-gtk nwg-look
 ### QT THEMING ###
 $pacinstall breeze qt5-wayland qt6-wayland
 yay -S qt5ct-kde qt6ct-kde --noconfirm
+echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
 
 ### APPLICATIONS ###
 $pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent steam vlc
