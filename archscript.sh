@@ -12,7 +12,6 @@
 # Add yayinstall variable for --needed --noconfirm options
 # Add theme config files for GTK3/4, QT5/6, and SDDM.
 # Figure out flatpak theming
-# Consider changing script to allow config files to replace existing directories and files.
 
 ### VARIABLES ###
 pacinstall="sudo pacman -S --needed --noconfirm"
@@ -22,14 +21,11 @@ sudo pacman -Syu
 
 ### GITCONFIGS ###
 $pacinstall git
-git clone https://github.com/user241324/gitconfigs/HOME/.config $HOME/.config
+git clone https://github.com/user241324/gitconfigs $HOME/gitconfigs
+cp -r $HOME/gitconfigs/HOME/. $HOME/
+sudo cp -r $HOME/gitconfigs/root/. /
+sudo rm -r $HOME/gitconfigs
 chmod +x $HOME/.config/polybar/launch.sh
-git clone https://github.com/user241324/gitconfigs/HOME/scripts $HOME/scripts
-git clone https://github.com/user241324/gitconfigs/HOME/.xsessionrc $HOME/.xsessionrc
-sudo git clone https://github.com/user241324/gitconfigs/etc/X11 /etc/X11
-sudo git clone https://github.com/user241324/gitconfigs/etc/sddm.conf.d /etc/sddm.conf.d
-sudo git clone https://github.com/user241324/gitconfigs/usr/share/backgrounds /usr/share/backgrounds
-sudo git clone https://github.com/user241324/gitconfigs/usr/share/rofi /usr/share/rofi
 
 ### YAY ###
 $pacinstall git base-devel
