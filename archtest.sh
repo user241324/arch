@@ -2,19 +2,8 @@
 
 pacinstall="sudo pacman -S --needed --noconfirm"
 
-# GITCONFIGS
-$pacinstall git
-
-git clone https://github.com/user241324/gitconfigs/HOME/.config $HOME/.config
-chmod +x $HOME/.config/polybar/launch.sh
-git clone https://github.com/user241324/gitconfigs/HOME/scripts $HOME/scripts
-git clone https://github.com/user241324/gitconfigs/HOME/.xsessionrc $HOME/.xsessionrc
-
-sudo git clone https://github.com/user241324/gitconfigs/etc/X11 /etc/X11
-sudo git clone https://github.com/user241324/gitconfigs/etc/sddm.conf.d /etc/sddm.conf.d
-
-sudo git clone https://github.com/user241324/gitconfigs/usr/share/backgrounds /usr/share/backgrounds
-sudo git clone https://github.com/user241324/gitconfigs/usr/share/rofi /usr/share/rofi
+# UPDATE
+sudo pacman -Syu
 
 # YAY
 $pacinstall git base-devel
@@ -25,10 +14,19 @@ yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
 
+# GITCONFIGS
+$pacinstall git
+git clone https://github.com/user241324/gitconfigs $HOME/gitconfigs
+cp -r $HOME/gitconfigs/HOME/* $HOME/*
+sudo cp -r $HOME/gitconfigs/root/* /*
+sudo rm -r $HOME/gitconfigs
+chmod +x $HOME/.config/polybar/launch.sh
+echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
+
 # CLI TOOLS
-$pacinstall bash-completion brightnessctl fastfetch git gnu-free-fonts man-db nano openssh speedtest-cli tailscale
+$pacinstall bash-completion fastfetch git man-db nano
 yay -S paccache-hook --noconfirm
-echo -e "\n# Run at shell startup\nfastfetch" >> $HOME/.bashrc
+echo "fastfetch" | tee -a $HOME/.bashrc
 
 # SDDM
 $pacinstall qt5-declarative gnu-free-fonts sddm xorg-server xorg-xrandr
