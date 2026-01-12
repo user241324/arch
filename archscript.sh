@@ -10,7 +10,7 @@
 # Add if statement for SSH to allow users to say no and initiate reboot
 # Try to adjust yay installation to not require intervention
 # Add yayinstall variable for --needed --noconfirm options
-# Add theme config files for GTK3/4, QT5/6, and SDDM.
+# Confirm via testing if additional theme files are needed for qt/gtk
 # Figure out flatpak theming
 
 ### VARIABLES ###
