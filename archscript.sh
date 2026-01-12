@@ -67,7 +67,7 @@ $pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
 sudo systemctl enable libvirtd.socket
 
 ### THUNAR ###
-$pacinstall gvfs gvfs-smb thunar thunar-archive-plugin thunar-volman xarchiver
+$pacinstall gvfs gvfs-mtp gvfs-smb thunar thunar-archive-plugin thunar-volman xarchiver
 
 ### FLATPAK ###
 $pacinstall flatpak
