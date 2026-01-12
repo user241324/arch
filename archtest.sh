@@ -36,7 +36,7 @@ sudo systemctl enable sddm.service
 $pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
 
 # I3
-$pacinstall feh i3-wm polybar rofi # Add polkit agent for x11
+$pacinstall feh i3-wm polybar rofi
 
 # nwg-look
 $pacinstall breeze-gtk nwg-look
