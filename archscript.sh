@@ -36,7 +36,7 @@ yay -Syu --devel
 yay -Y --devel --save
 
 ### CLI TOOLS ###
-$pacinstall bash-completion brightnessctl btop fastfetch gnu-free-fonts man-db nano speedtest-cli tailscale xorg-xlsclients
+$pacinstall bash-completion brightnessctl btop fastfetch gnu-free-fonts grim man-db nano slurp speedtest-cli tailscale xorg-xlsclients
 yay -S paccache-hook --noconfirm
 echo "fastfetch" | tee -a $HOME/.bashrc
 
