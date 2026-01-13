@@ -62,6 +62,10 @@ echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
 $pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent steam vlc
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 
+# MPD
+$pacinstall mpd xfmpc
+systemctl --user enable mpd.service
+
 # VIRT-MANAGER
 $pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
 sudo systemctl enable libvirtd.socket
