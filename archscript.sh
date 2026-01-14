@@ -63,7 +63,7 @@ $pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 
 # MPD
-$pacinstall mpd xfmpc
+$pacinstall mpd mpc ario
 systemctl --user enable mpd.service
 
 # VIRT-MANAGER
