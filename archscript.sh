@@ -5,7 +5,6 @@
 # Only use with fresh minimal installations, otherwise the git clones may fail.
 
 ### TO DO ###
-# Add polkit gui (lxsession contains lxpolkit) for x11
 # Confirm hyprpolkit works as currently set
 # Add if statement for SSH to allow users to say no and initiate reboot
 # Try to adjust yay installation to not require intervention
