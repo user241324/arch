@@ -1,10 +1,12 @@
 #!/bin/bash
 
+pacinstall="sudo pacman -S --needed --noconfirm"
+
 # Update installed packages
 sudo pacman -Syu --noconfirm
 
 # Install yay
-sudo pacman -S --needed --noconfirm git base-devel
+$pacinstall git base-devel
 git clone https://aur.archlinux.org/yay.git $HOME/.yay
 cd .yay || exit
 makepkg -si
@@ -13,7 +15,7 @@ yay -Syu --devel
 yay -Y --devel --save
 
 # Install chromebook-linux-audio
-sudo pacman -S --noconfirm python
+$pacinstall python
 git clone https://github.com/WeirdTreeThing/chromebook-linux-audio /$HOME/.chromebook-linux-audio
 cd $HOME/.chromebook-linux-audio || exit
 ./setup-audio
