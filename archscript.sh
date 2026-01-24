@@ -53,7 +53,7 @@ $pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 
 # VIRT-MANAGER
-$pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
+$pacinstall dmidecode dnsmasq libvirt qemu-full swtpm virt-manager
 sudo systemctl enable libvirtd.socket
 
 ### THUNAR ###
