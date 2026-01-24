@@ -55,6 +55,7 @@ yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 # VIRT-MANAGER
 $pacinstall dmidecode dnsmasq libvirt qemu-full swtpm virt-manager
 sudo systemctl enable libvirtd.socket
+sudo usermod -aG libvirt,libvirt-qemu $USER
 
 ### THUNAR ###
 $pacinstall gvfs gvfs-mtp gvfs-smb mousepad sshfs thunar thunar-archive-plugin thunar-volman xarchiver
