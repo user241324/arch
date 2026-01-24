@@ -3,9 +3,16 @@
 pacinstall="sudo pacman -S --needed --noconfirm"
 
 # UPDATE
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
-# YAY
+### GITCONFIGS ###
+$pacinstall git
+git clone https://github.com/user241324/gitconfigs $HOME/gitconfigs
+cp -r $HOME/gitconfigs/HOME/. $HOME/
+sudo cp -r $HOME/gitconfigs/root/. /
+sudo rm -r $HOME/gitconfigs
+
+### YAY ###
 $pacinstall git base-devel
 git clone https://aur.archlinux.org/yay.git $HOME/.yay
 cd .yay || exit
@@ -14,45 +21,25 @@ yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
 
-# GITCONFIGS
-$pacinstall git
-git clone https://github.com/user241324/gitconfigs $HOME/gitconfigs
-cp -r $HOME/gitconfigs/HOME/. $HOME/
-sudo cp -r $HOME/gitconfigs/root/. /
-sudo rm -r $HOME/gitconfigs
-chmod +x $HOME/.config/polybar/launch.sh
-echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
-
-# CLI TOOLS
-$pacinstall bash-completion fastfetch git man-db nano
+### CLI TOOLS ###
+$pacinstall bash-completion brightnessctl btop fastfetch gnu-free-fonts grim man-db nano slurp speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
 echo "fastfetch" | tee -a $HOME/.bashrc
 
-# SDDM
-$pacinstall qt5-declarative gnu-free-fonts sddm xorg-server xorg-xrandr
-sudo systemctl enable sddm.service
-
-# HYPRLAND
+### HYPRLAND ###
 $pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
 
-# I3
-$pacinstall feh i3-wm polybar rofi
+### GTK THEMING ###
+$pacinstall breeze-gtk
 
-# nwg-look
-$pacinstall breeze-gtk nwg-look
+### QT THEMING ###
+$pacinstall breeze
 
-# Qt theming
-$pacinstall breeze qt5-wayland qt6-wayland
-yay -S qt5ct-kde qt6ct-kde --noconfirm
+### APPLICATIONS ###
+$pacinstall alacritty firefox hunspell-en_us libreoffice-fresh pavucontrol qbittorrent vlc
 
-########################
-### GUI APPLICATIONS ###
-########################
+### THUNAR ###
+$pacinstall gvfs gvfs-mtp gvfs-smb mousepad sshfs thunar thunar-archive-plugin thunar-volman xarchiver
 
-$pacinstall alacritty firefox mousepad pavucontrol qbittorrent thunar vlc xarchiver
-
-# thunar tools
-$pacinstall gvfs thunar thunar-archive-plugin thunar-volman xarchiver
-
-# Reboot
+### REBOOT ###
 sudo reboot now
