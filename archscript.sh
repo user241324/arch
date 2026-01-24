@@ -39,7 +39,7 @@ yay -S paccache-hook --noconfirm
 echo "fastfetch" | tee -a $HOME/.bashrc
 
 ### HYPRLAND ###
-$pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
+$pacinstall hyprland hyprpaper hyprpolkitagent hyprshot otf-font-awesome waybar wofi
 
 ### GTK THEMING ###
 $pacinstall breeze-gtk
