@@ -27,3 +27,9 @@ cd $HOME/.cros-keyboard-map || exit
 
 # Install mkinitcpio-numlock
 yay -S mkinitcpio-numlock --noconfirm
+
+# Additional audio packages
+#pacinstall sof-firmware
+
+# Reboot
+sudo reboot now
