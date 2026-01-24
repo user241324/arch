@@ -15,7 +15,7 @@
 pacinstall="sudo pacman -S --needed --noconfirm"
 
 ### UPDATE ###
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 ### GITCONFIGS ###
 $pacinstall git
@@ -23,7 +23,6 @@ git clone https://github.com/user241324/gitconfigs $HOME/gitconfigs
 cp -r $HOME/gitconfigs/HOME/. $HOME/
 sudo cp -r $HOME/gitconfigs/root/. /
 sudo rm -r $HOME/gitconfigs
-chmod +x $HOME/.config/polybar/launch.sh
 
 ### YAY ###
 $pacinstall git base-devel
@@ -35,35 +34,23 @@ yay -Syu --devel
 yay -Y --devel --save
 
 ### CLI TOOLS ###
-$pacinstall bash-completion brightnessctl btop fastfetch gnu-free-fonts grim man-db nano slurp speedtest-cli tailscale xorg-xlsclients
+$pacinstall bash-completion brightnessctl btop fastfetch gnu-free-fonts grim man-db nano slurp speedtest-cli tailscale
 yay -S paccache-hook --noconfirm
 echo "fastfetch" | tee -a $HOME/.bashrc
-
-### SDDM ###
-$pacinstall qt5-declarative gnu-free-fonts sddm xorg-server xorg-xrandr
-sudo systemctl enable sddm.service
 
 ### HYPRLAND ###
 $pacinstall hyprland hyprpaper hyprpolkitagent otf-font-awesome waybar wofi
 
-### I3 ###
-$pacinstall feh i3-wm polybar rofi
-
 ### GTK THEMING ###
-$pacinstall breeze-gtk nwg-look
+$pacinstall breeze-gtk
 
 ### QT THEMING ###
 $pacinstall breeze qt5-wayland qt6-wayland
 yay -S qt5ct-kde qt6ct-kde --noconfirm
-echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
 
 ### APPLICATIONS ###
 $pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent steam vlc
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
-
-# MPD
-$pacinstall mpd mpc ario
-systemctl --user enable mpd.service
 
 # VIRT-MANAGER
 $pacinstall dmidecode dns-masq libvirt qemu-full swtpm virt-manager
@@ -91,8 +78,6 @@ protonvpn=com.protonvpn.www
 protonupqt=net.davidotek.pupgui2
 ungoogledchromium=io.github.ungoogled_software.ungoogled_chromium
 vscode=com.visualstudio.code
-
-flatpak install -y $flatseal $bitwarden $heroicgames
 
 ### SSH ###
 $pacinstall openssh
