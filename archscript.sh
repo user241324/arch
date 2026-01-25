@@ -58,7 +58,7 @@ sudo systemctl enable libvirtd.socket
 sudo usermod -aG libvirt,libvirt-qemu $USER
 
 ### THUNAR ###
-$pacinstall gvfs gvfs-mtp gvfs-smb mousepad sshfs thunar thunar-archive-plugin thunar-volman xarchiver
+$pacinstall gvfs gvfs-mtp gvfs-smb mousepad sshfs thunar thunar-archive-plugin thunar-volman xarchiver 7zip
 
 ### FLATPAK ###
 $pacinstall flatpak
