@@ -53,7 +53,7 @@ $pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
 
 # MEDIA PLAYER
-$pacinstall mpv celluloid
+$pacinstall mpv
 
 # VIRT-MANAGER
 $pacinstall dmidecode dnsmasq libvirt qemu-full swtpm virt-manager
