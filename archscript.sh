@@ -49,8 +49,11 @@ $pacinstall breeze qt5-wayland qt6-wayland
 yay -S qt5ct-kde qt6ct-kde --noconfirm
 
 ### APPLICATIONS ###
-$pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent steam vlc
+$pacinstall alacritty firefox libreoffice-fresh mousepad pavucontrol qbittorrent steam
 yay -S betterbird-bin libation visual-studio-code.bin --noconfirm
+
+# MEDIA PLAYER
+$pacinstall mpv celluloid
 
 # VIRT-MANAGER
 $pacinstall dmidecode dnsmasq libvirt qemu-full swtpm virt-manager
